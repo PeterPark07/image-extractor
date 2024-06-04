@@ -24,25 +24,7 @@ def extract_images_from_html(html_content, base_url):
 @app.route('/', methods=['GET'])
 def index():
   """ Renders a basic HTML form """
-  return '''
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Image Extractor</title>
-  </head>
-  <body>
-    <h1>Image Extractor</h1>
-    <form method="POST" action="/extract">
-      <label for="url">Enter URL:</label>
-      <input type="text" id="url" name="url" placeholder="https://www.example.com">
-      <button type="submit">Extract Images</button>
-    </form>
-    <div id="extracted-images"></div>
-  </body>
-  </html>
-  '''
-
+  return render_template('index.html')
 # Route for handling image extraction request
 @app.route('/extract', methods=['POST'])
 def extract_images():
